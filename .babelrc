@@ -1,0 +1,18 @@
+{
+  "presets": [
+    "@babel/env",
+    "@babel/typescript",
+    "@babel/react"
+  ],
+  "plugins": [
+    ["import", {
+      "libraryName": "expui",
+      "libraryDirectory": "components",
+      "style": true,   // or 'css'
+    }
+    ],
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread",
+   
+  ]
+}

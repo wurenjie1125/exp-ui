@@ -1,23 +1,23 @@
 {
   "compilerOptions": {
-      "target": "es5",
-      "module": "es2015",
-      "moduleResolution": "node",
-      "sourceMap": true,
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "removeComments": false,
-      "noImplicitAny": false,
-      "suppressImplicitAnyIndexErrors": false,
-      "declaration": false,
-      "jsx": "react"
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "target": "es2015",
+    "module": "es2015",
+    "strict": true,
+    "jsx": "react"
   },
-  "compileOnSave": false,
-  "buildOnSave": false,
-  "exclude": [
-      "node_modules",
-  ],
   "include": [
-    "./src/**/*"
+    "components/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
   ]
 }
