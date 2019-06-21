@@ -1,13 +1,8 @@
-.exp-button {
-  &.disable{
-    background-color: #eee;
-  }
-  width: 220px;
-  height: 40px;
-  color: #333;
-  font-size: 14px;
-  transform:scale(2);
-  flex:1;
-  display: flex;
-  background-image: linear-gradient(159deg, #918bf9 0%, #3f34fe 100%);
+@import '../../style/theme/index';
+
+@btn-prefix-cls: ~'@{exp-prefix}-btn';
+
+.@{btn-prefix-cls} {
+  padding: 5px 10px;
+  border:1px solid #ddd;
 }
