@@ -1,0 +1,46 @@
+@import '../../style/theme/index';
+
+@activity-indicator-prefix-cls: ~'@{exp-prefix}-activity-indicator';
+
+
+
+
+.@{activity-indicator-prefix-cls}{
+  display: inline-block;
+  animation:rotate-360 1.5s linear infinite;  
+  vertical-align: middle;
+ 
+  .@{activity-indicator-prefix-cls}__svg{
+    width: 20px;
+    height: 20px;
+  }
+
+  .@{activity-indicator-prefix-cls}__circular{
+    animation:rotate-circular 1.5s ease-in-out infinite;
+    stroke-linecap: round;
+    stroke: @primary-color;
+  }
+}
+@keyframes rotate-circular{
+  0%{
+    stroke-dasharray: 1,200;
+    stroke-dashoffset: 0;
+  }
+  50%{
+    stroke-dasharray: 120,200;
+    stroke-dashoffset: -60;
+  }
+  100%{
+    stroke-dasharray: 120,200;
+    stroke-dashoffset: -180;
+  }
+}
+@keyframes rotate-360{
+  0%{
+    transform: rotate(0);
+  }
+  
+  100%{
+    transform: rotate(1turn);
+  }
+}

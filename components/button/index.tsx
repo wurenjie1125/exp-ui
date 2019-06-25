@@ -1,10 +1,11 @@
 import * as React from "react";
 import classnames from 'classnames';
 import {prefixCls} from '../config/defaultName' 
+import ActivityIndicator from '../activity-indicator'
 
 type ButtonHTMLType = 'submit'| 'button' | 'reset';
 type ButtonType = 'primary' | 'default' | 'danger'| 'disable'
-type ButtonSize = 'large' | 'middle' | 'small'
+type ButtonSize = 'lg' | 'md' | 'sm' | 'xs'
 
 
 type BaseButtonProps  = {
@@ -26,8 +27,8 @@ type ButtonProps = {
 
 class Button extends React.PureComponent<ButtonProps, {}> {
   static defaultProps = {
-    type: 'primary',
-    size: 'middle',
+    type: 'default',
+    size: 'md',
     block: false,
     loading: false,
     disabled: false,
@@ -51,15 +52,28 @@ class Button extends React.PureComponent<ButtonProps, {}> {
       children,
       loading,
       block,
+      icon,
       ...rest
     } = this.props;
     const classes = classnames(className,`${prefixCls}-btn`, {
-      [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-${type}`]: true,
-      [`${prefixCls}-${size}`]: true,
+      [`${prefixCls}-btn--disabled`]: disabled,
+      [`${prefixCls}-btn--${type}`]: true,
+      [`${prefixCls}-btn--${size}`]: true,
+      [`${prefixCls}-btn--loading`]: loading,
     })
+    let contentRender;
+    if(loading){
+      contentRender = <div className={`${prefixCls}-btn__content`}>
+        <ActivityIndicator />
+        {children}
+      </div> 
+    }else if(icon){
+      //todo
+    }else{
+      contentRender = children
+    }
     
-    return <button className={classes} onClick={this.onClick} {...rest}>{children}</button>;
+    return <button className={classes} onClick={this.onClick} {...rest}>{contentRender}</button>;
   }
 }
 export default Button;

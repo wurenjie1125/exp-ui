@@ -1,19 +1,24 @@
 import * as React from "react";
 
-import { Button, Input } from "expui"
+import { Button, Input } from "expui";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 
-import cloud from './images/Cloud.png'
+import Container from "./components/container";
+import "./style/index";
+import Markdown from "./components/markdown";
 
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Button className='dda dd'>123</Button>
-        <Input />
-        <img src={cloud}></img>
-
-      </div>
+      <Router>
+        <Container>
+          <Route path="/button" component={Markdown} />
+          {/* <Button loading={true} type="primary" className="dda dd">
+            确定
+          </Button> */}
+        </Container>
+      </Router>
     );
   }
 }

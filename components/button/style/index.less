@@ -3,6 +3,48 @@
 @btn-prefix-cls: ~'@{exp-prefix}-btn';
 
 .@{btn-prefix-cls} {
-  padding: 5px 10px;
-  border:1px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  user-select: none;
+  outline: 0 none;
+  -webkit-appearance: none;
+  font-weight: 400;
+  font-size:@font-size;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: @border-radius;
+
+  &.@{btn-prefix-cls}--md{
+    padding: 10px 16px;
+  }
+  &.@{btn-prefix-cls}--lg{
+    padding: 14px 20px;
+  }
+  &.@{btn-prefix-cls}--primary{
+    background-color: @primary-color;
+    color: #fff;
+    border: 0;
+    .@{exp-prefix}-activity-indicator__circular{
+      stroke: #fff;
+      stroke-width:5;
+    }
+
+  }
+  &.@{btn-prefix-cls}--loading{
+    background-color: fadeout(@primary-color, 40%)
+  }
+  &.@{btn-prefix-cls}--default {
+    border: 1px solid;
+    border-color: @border-color;
+
+  }
+  .@{btn-prefix-cls}__content{
+    display: flex;
+    align-items: center;
+    .@{exp-prefix}-activity-indicator{
+      margin-right: 10px;
+    }
+  }
+  
 }
